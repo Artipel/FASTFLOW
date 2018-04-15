@@ -1,0 +1,3 @@
+C:/Users/Arti/Documents/Algorytmy/FASTFLOW/cmake-build-debug/CMakeFiles/FASTFLOW.dir
+C:/Users/Arti/Documents/Algorytmy/FASTFLOW/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Arti/Documents/Algorytmy/FASTFLOW/cmake-build-debug/CMakeFiles/rebuild_cache.dir
