@@ -51,24 +51,38 @@ struct Graph{
         }
     }
 
-    Graph constructGl(int s, int t){
+    Graph constructGl(int s, int t, int size){
         BFS(s);
-        Graph gl(t);
-        for(int i = 0; i <= t; ++i){
+        Graph gl(size);
+        for(int i = 0; i < size; ++i){
             for(auto e = vertices[i].edges.begin(); e != vertices[i].edges.end(); ++e){
-                if(vertices[e->first].distanceFromRoot == vertices[i].distanceFromRoot + 1)
+                if(vertices[e->first].distanceFromRoot == vertices[i].distanceFromRoot + 1) {
                     gl.addEdge(i, e->first, e->second);
+                    gl.vertices[e->first].distanceFromRoot = vertices[e->first].distanceFromRoot;
+                }
             }
         }
         return gl;
     }
+};
 
+struct Path{
+
+    list<Node *> verts;
+
+    long reducePath(){
+        long min = LONG_MAX;
+        for(auto iter = verts.begin(); iter != (--verts.end()); ++iter){
+            iter->edges[]
+        }
+    }
 
 };
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    int size = 10;
+    int size = 4;
+    long long flow = 0;
     Graph graph = Graph(size + 1);
     graph.addEdge(1, 3, 5);
     graph.addEdge(1, 2, 3);
@@ -76,7 +90,9 @@ int main() {
     graph.addEdge(2, 4, 1);
     graph.addEdge(1, 4, 2);
 
-    Graph gl = graph.constructGl(1, 3);
+    Graph gl = graph.constructGl(1, 3, size+1);
+    Path path = findPathIn(gl);
+    flow += path.reducePath();
     cout<<1;
 
     return 0;
